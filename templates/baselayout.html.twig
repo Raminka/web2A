@@ -3,10 +3,43 @@
 <html>
   <head>
     <meta charset="utf-8">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <title>{% block title %}Application todos{% endblock %}</title>
   </head>
   <body>
-    {% block body %}
-    {% endblock %} {# body #}
+{# Bootstrap container #}
+	<div style="min-height: 90%" class="container">
+
+		{% block header %}
+		<div class="row">
+			<div class="col-md-12">
+				<p><i>HEADER</i></p>
+			</div>
+		</div>
+		{% endblock %}
+		{% block main %}
+		<div class="row">
+			<div class="col-md-12">
+				<p><i>MAIN</i></p>
+			</div>
+		</div>
+		{% endblock %}
+    	{% block footer %}
+    	<footer>
+    		<p>FOOTER</p>
+    	</footer>
+	    {% endblock %}
+
+	</div>	<!-- /.container -->
+
+	
+
+	
+    
+<script src="/js/bootstrap.min.js"></script>
+	{% block body %}
+{% endblock %} {#body#}
+
   </body>
 </html>

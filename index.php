@@ -60,4 +60,14 @@ $app->get ( '/programmation',
 	}
 )->bind ( 'programmationlist' );
 
+// home_action
+$app->get ( '/circuit', function () use ($app) {
+	$todoslist = get_all_todos ();
+	// print_r($todoslist);
+	
+	return $app ['twig']->render ( 'listtodos.html.twig', [ 
+			'todoslist' => $todoslist 
+	] );
+} )->bind ( 'home' );
+
 $app->run ();
