@@ -1,0 +1,62 @@
+{# templates/admin_home.html.twig #}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/stylesbackoffice.css">
+    <title>{% block title %}AgenceVoyageBO{% endblock %}</title>
+  </head>
+  <body>
+{# Bootstrap container #}
+	<div style="min-height: 90%" class="container">
+
+		{% block header %}
+		<div class="row">
+			<div class="col-md-12">
+
+
+			<nav>
+				<ul style='list-style-type:none'>
+	    				<li><a href="/admin/home"><span class="sidebar-text">Home </span></a></li>
+   				 	<li><a  href="/circuitBO"><span class="sidebar-text">Circuits List </span></a></li>
+    					<li><a  href="/programmation"><span class="sidebar-text">Programmations List</span></a></li>
+				</ul>
+			</nav>
+
+				
+			</div>
+		</div>
+		{% endblock %}
+		{% block main %}
+		<div class="row">
+			<div class="
+col-md-12">
+				<p><i>MAIN</i></p>
+			</div>
+		</div>
+		{% endblock %}
+    	{% block footer %}
+    	<footer>
+		<p> 
+		</p>
+    		 <img src="/templates/inspiration-voyage.jpg" width="650"> 
+		
+    	</footer>
+		<li><a href="/"><span class="sidebar-text">Home (front office) </span></a></li>
+	    {% endblock %}
+	
+	</div>	<!-- /.container -->
+
+	
+
+	
+    
+<script src="/js/bootstrap.min.js"></script>
+	{% block body %}
+
+{% endblock %} {#body#}
+
+  </body>
+</html>

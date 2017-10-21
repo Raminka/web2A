@@ -97,14 +97,10 @@ $app->get ('/admin/home',
 )->bind ( 'admin_home' );
 
 
-// home_action
+// circuitBO
 $app->get ( '/circuitBO', function () use ($app) {
-	$todoslist = get_all_todos ();
-	// print_r($todoslist);
 	
-	return $app ['twig']->render ( 'circuitlistBO.html.twig', [ 
-			'todoslist' => $todoslist 
-	] );
+	return $app ['twig']->render ( 'circuitslistBO.html.twig' );
 } )->bind ( 'circuitBO' );
 
 

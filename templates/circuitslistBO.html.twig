@@ -1,0 +1,39 @@
+{# templates/circuitslistBO.html.twig #}
+
+{% extends "admin_home.html.twig" %}
+
+{% block title %}{{ parent() }} - Circuits list{% endblock %}
+
+
+{% block main %}
+   
+
+
+{# formulaire d'ajout d'un nouveau circuit #}
+{% block add_form %}
+    <!-- add_form -->
+			<form action="/tasks" method="POST">
+				<div class="input-group">
+					<input type="text" name="name" class="form-control" placeholder="What's the new circuit?">
+					<span class="input-group-btn">
+						<input type="submit" value="Add Circuit" class="btn">
+					</span>
+				</div>
+			</form>
+    <!-- /add_form -->
+
+{% endblock %} {# add_form #}
+
+{# formulaire de suppression des tâches terminées #}
+{% block clearcomplete_form %}
+    <!-- clearcomplete_form -->
+			<form action="/tasks/clear-complete" method="POST">
+				<input type="submit" class="btn btn-danger btn-block"
+					value="Clear Completed">
+			</form>
+    <!-- /clearcomplete_form -->
+{% endblock %} {# clearcomplete_form #}
+
+
+{% endblock %} {# main #}
+
