@@ -72,6 +72,7 @@ $app->get ( '/programmation',
 	}
 )->bind ( 'programmationlist' );
 
+
 // home_action
 $app->get ( '/circuit', function () use ($app) {
 	$todoslist = get_all_todos ();
@@ -82,4 +83,39 @@ $app->get ( '/circuit', function () use ($app) {
 	] );
 } )->bind ( 'home' );
 
+
+
+//Back Office
+
+//admin_home
+$app->get ('/admin/home',
+	function () use ($app)
+	{
+
+	return $app ['twig']->render ( 'admin_home.html.twig' );
+}
+)->bind ( 'admin_home' );
+
+
+// home_action
+$app->get ( '/circuitBO', function () use ($app) {
+	$todoslist = get_all_todos ();
+	// print_r($todoslist);
+	
+	return $app ['twig']->render ( 'circuitlistBO.html.twig', [ 
+			'todoslist' => $todoslist 
+	] );
+} )->bind ( 'circuitBO' );
+
+
+
+
+
 $app->run ();
+
+
+
+
+
+
+
