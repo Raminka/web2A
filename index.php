@@ -99,10 +99,21 @@ $app->get ('/admin/home',
 
 // circuitBO
 $app->get ( '/circuitBO', function () use ($app) {
-	
-	return $app ['twig']->render ( 'circuitslistBO.html.twig' );
-} )->bind ( 'circuitBO' );
+	$circuitslist = get_all_circuits ();
+    	// print_r($circuitslist);
+	return $app ['twig']->render ( 'circuitslistBO.html.twig', [
+    			'circuitslist' => $circuitslist
 
+    	] );
+    }
+)->bind ( 'circuitlist' );
+
+
+//	return $app ['twig']->render ( 'circuitslistBO.html.twig' );
+//} )->bind ( 'circuitBO' );
+
+
+    	
 
 
 
