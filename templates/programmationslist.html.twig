@@ -4,14 +4,14 @@
 
 {% block title %}{{ parent() }} - programmations list{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>List of programmations</h1>
     {% if programmationslist is not empty %}
         <p>Here are all your programmations:</p>
         <ul>
         {# Loop through list and creeate the list of programmation items. #}
         {% for programmation in programmationslist %}
-            <li>
+            <li style='list-style-type:none'>
           		{{ programmation.id }} {{ programmation.circuit.description }} le {{ programmation.dateDepart|date('d-m-Y')  }}
             </li>
         {% endfor %}
@@ -19,4 +19,5 @@
     {% else %}
         <p>Sorry, you don't have any programmations yet!</p>
     {% endif %}    
-{% endblock %} {# body #}
+{% endblock %} {# main #}
+{% block footer %}{% endblock %}

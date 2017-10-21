@@ -27,9 +27,21 @@ $app->get ( '/circuit',
     	
     	return $app ['twig']->render ( 'circuitslist.html.twig', [
     			'circuitslist' => $circuitslist
+
     	] );
     }
 )->bind ( 'circuitlist' );
+
+
+//home
+$app->get ('/',
+	function () use ($app)
+	{
+	
+	return $app ['twig']->render ( 'index.html.twig' );
+
+}
+)->bind ( 'index' );
 
 // circuitshow : affiche les détails d'un circuit
 $app->get ( '/circuit/{id}', 
