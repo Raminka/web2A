@@ -5,18 +5,49 @@
 {% block title %}{{ parent() }} - programmations list{% endblock %}
 
 {% block main %}
+
     <h1>List of programmations</h1>
     {% if programmationslist is not empty %}
-        <p>Here are all your programmations:</p>
-        <ul>
-        {# Loop through list and creeate the list of programmation items. #}
-        {% for programmation in programmationslist %}
-            <li style='list-style-type:none'>
-          		{{ programmation.id }} {{ programmation.circuit.description }} le {{ programmation.dateDepart|date('d-m-Y')  }}
-            </li>
-        {% endfor %}
-        </ul>
+
+<div class="container-fluid text-center bg-grey">
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="templates/andalousie.jpg" alt="Andalousie" width="6000" height="450">
+        <p><strong>Andalousie</strong></p>
+        <p>10-07-2018</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="templates/vietnam.jpg" alt="Vietnam" width="400" height="300">
+        <p><strong>Vietnam</strong></p>
+        <p>16-08-2017</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="templates/ile-de-france.jpg" alt="Ile de France" width="400" height="300">
+        <p><strong>Ile de France</strong></p>
+        <p>15-05-2016</p>
+      </div>
+    </div>
+<div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="templates/italie.jpg" alt="Italie" width="400" height="300">
+        <p><strong>Italie</strong></p>
+        <p>13-10-2017</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+       
     {% else %}
         <p>Sorry, you don't have any programmations yet!</p>
     {% endif %}    
 {% endblock %} {# main #}
+{% block footer %} {% endblock %}
