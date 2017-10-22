@@ -106,15 +106,38 @@ $app->get ( '/circuitBO', function () use ($app) {
 
     	] );
     }
-)->bind ( 'circuitlist' );
+)->bind ( 'circuitBO' );
 
 
-//	return $app ['twig']->render ( 'circuitslistBO.html.twig' );
-//} )->bind ( 'circuitBO' );
+// programmationlist : liste tous les circuits programmés
+$app->get ( '/programmationBO', 
+	function () use ($app) 
+	{
+		$programmationslist = get_all_programmations ();
+		// print_r($programmationslist);
 
+		return $app ['twig']->render ( 'programmationslistBO.html.twig', [ 
+				'programmationslist' => $programmationslist 
+			] );
+	}
+)->bind ( 'programmationBO' );
 
     	
+// circuitshowBO
+$app->get ( '/circuitBO/{id}', 
+	function ($id) use ($app) 
+	{
+		$circuit = get_circuit_by_id ( $id );
+		// print_r($circuit);
+		$programmations = get_programmations_by_circuit_id ( $id );
+		//$circuit ['programmations'] = $programmations;
 
+		return $app ['twig']->render ( 'circuitshowBO.html.twig', [ 
+				'id' => $id,
+				'circuit' => $circuit 
+			] );
+	}
+)->bind ( 'circuitshowBO' );
 
 
 

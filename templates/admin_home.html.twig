@@ -5,37 +5,73 @@
     <meta charset="utf-8">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="/css/stylesbackoffice.css">
+{#<link rel="stylesheet" href="/css/stylesbackoffice.css">#}
     <title>{% block title %}AgenceVoyageBO{% endblock %}</title>
+
+  <style>
+	body {
+	background-color:white;
+	font-family: sans-serif;
+	padding-left: 100px;
+}
+
+
+
+ul {
+	margin-top: 20px;
+	padding-left: 50px;
+	list-style: none;
+}
+
+li {
+	font-size: 1.25em;
+	padding: 20px 0;
+	border-top: 1px solid #eee;
+}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+   
+  </style>
+
   </head>
   <body>
 {# Bootstrap container #}
 	<div style="min-height: 90%" class="container">
 
 		{% block header %}
-		<div class="row">
-			<div class="col-md-12">
-
-
-			<nav>
-				<ul style='list-style-type:none'>
-	    				<li><a href="/admin/home"><span class="sidebar-text">Home </span></a></li>
-   				 	<li><a  href="/circuitBO"><span class="sidebar-text">Circuits List </span></a></li>
-    					<li><a  href="/programmation"><span class="sidebar-text">Programmations List</span></a></li>
-				</ul>
+			<nav class="navbar navbar-inverse">
+  				<div class="container-fluid">
+    					<div class="navbar-header">
+      						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        						<span class="icon-bar"></span>
+        						<span class="icon-bar"></span>
+       	 						<span class="icon-bar"></span>                        
+      						</button>
+    					</div>
+    					<div class="collapse navbar-collapse" id="myNavbar">
+      						<ul class="nav navbar-nav">
+							<li><a href="/admin/home"><span class="sidebar-text">Home</span></a></li>
+							<li><a  href="/circuitBO"><span class="sidebar-text">Circuits List</span></a></li>
+    							<li><a  href="/programmationBO"><span class="sidebar-text">Programmations List</span></a></li>
+						</ul>
+      						<ul class="nav navbar-nav navbar-right">
+        						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      						</ul>
+    					</div>
+  				</div>
 			</nav>
-
-				
-			</div>
-		</div>
 		{% endblock %}
 		{% block main %}
 		<div class="row">
-			<div class="
-col-md-12">
+			<div class="col-md-12">
 				<p><i>MAIN</i></p>
 			</div>
 		</div>
+
 		{% endblock %}
     	{% block footer %}
     	<footer>

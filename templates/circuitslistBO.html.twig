@@ -5,24 +5,6 @@
 {% block title %}{{ parent() }} - Circuits list{% endblock %}
 
 
-{% block main %}
-   
-    <h1>List of circuits</h1>
-    {% if circuitslist is not empty %}
-        <p>Here are all your circuits:</p>
-        <ul style='list-style-type:none'>
-        {# Loop through list and creeate the list of circuit items. #}
-        {% for circuit in circuitslist %}
-            <li>
-          		<a href="{{ path('circuitshow', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Sorry, you don't have any circuits yet!</p>
-    {% endif %}
-
-
 {# formulaire d'ajout d'un nouveau circuit #}
 {% block add_form %}
     <!-- add_form -->
@@ -35,11 +17,9 @@
 				</div>
 			</form>
     <!-- /add_form -->
-<p>
-</p>
 {% endblock %} {# add_form #}
 
-{# formulaire de suppression des tâches terminées #}
+{# formulaire de suppression de circuits terminés #}
 {% block clearcomplete_form %}
     <!-- clearcomplete_form -->
 			<form action="/tasks/clear-complete" method="POST">
@@ -48,6 +28,45 @@
 			</form>
     <!-- /clearcomplete_form -->
 {% endblock %} {# clearcomplete_form #}
+
+{# au lieu de surcharger uniquement le bloc content de todoslayout, on surcharge un peu plus haut, le bloc main
+      pour embarquer deux rows dans la partie centrale
+  #}
+
+
+{% block main %}
+   
+    <h1>List of circuits</h1>
+    {% if circuitslist is not empty %}
+        <p>Here are all your circuits:</p>
+        <ul style='list-style-type:none'>
+        {# Loop through list and creeate the list of circuit items. #}
+        {% for circuit in circuitslist %}
+            <li>
+          		<a href="{{ path('circuitshowBO', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sorry, you don't have any circuits yet!</p>
+    {% endif %}
+
+
+<div class="row">
+  <div class="col-md-12">
+     {{ block('todos_list') }}
+  </div> <!-- /.col-md-12 -->
+</div>	<!-- /.row -->
+<div class="row">
+	<div class="col-md-9">
+		{{ block('add_form') }}
+	</div> <!-- /.col-md-9 -->
+	<div class="col-md-3">
+		<div class="center-block">
+		    {{ block('clearcomplete_form') }}
+		</div> <!-- /.center-block -->
+	</div> <!-- /.col-md-3 -->
+</div> <!-- /.row -->
 
 
 {% endblock %} {# main #}
