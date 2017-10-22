@@ -5,43 +5,74 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/styles.css">
   <title>Details for circuit {{ id }}</title>
+
+<style>
+p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+    .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+</style>
 </head>
 <body>
 <li><a href="/circuit"><span class="sidebar-text">Back</span></a></li>
-  <h1>{{ circuit.description }}</h1>
 
-	<h2>Détails</h2>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h1 class="margin">{{ circuit.description }}</h1>
+ </div>
 
-			<p>Description: {{ circuit.description }}</p>
-
-			<p>Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} j.
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h2 class="margin">Détails</h2>
+ 	<p>Description: {{ circuit.description }}</p>
+	<p>Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} j.
          de voyage à travers le {{ circuit.paysDepart }}, pour terminer à
          {{ circuit.villeArrivee }}.</p>
+  
+</div>
 
-  {% if circuit.programmations is not empty %}
-  <h2>Programmations de ce circuit</h2>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">  
+	{% if circuit.programmations is not empty %}  
+
+  	<h2 class="margin">Programmations de ce circuit</h2><br>
   {# <pre>{{ dump(circuit) }}</pre> #}
-     	<table>
-     	 		<thead>
-     					<tr>
-     				    	<th>Date de départ</th>
-     						  <th>Nombre de personnes</th>
-     						  <th>Prix</th>
-     					</tr>
-     				</thead>
-     		{%  for programmation in circuit.programmations %}
-     			<tr>
-     			   <td>{{ programmation.dateDepart|date('d-m-Y')  }}</td>
-     			   <td>{{ programmation.nombrePersonnes }}</td>
-     			   <td>{{ programmation.prix }} euros</td>
-     			</tr>
-     		{% endfor %}
-     		</table>
+  	<div class="row">
+		{%  for programmation in circuit.programmations %}
+	    		<div class="col-sm-4">	
+      				<p>Date de départ</p>
+     				<p>{{ programmation.dateDepart|date('d-m-Y')  }}</p>
+	    		</div>
+	    		<div class="col-sm-4"> 
+      				<p>Nombres de personnes</p>
+     				<p>{{ programmation.nombrePersonnes }}</p>
+   			</div>
+    			<div class="col-sm-4"> 
+      				<p>Prix</p>
+				<p>{{ programmation.prix }} euros</p>
+		
+      			</div>
+		{% endfor %}
+	</div>
+	
+
     {% else %}
     <p>Désolé : pas encore de programmations pour ce circuit.</p>
     {% endif %}
-
+</div>
 </body>
 </html>
