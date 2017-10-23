@@ -16,7 +16,13 @@
 
 {% block main %}
     <h1>List of circuits</h1>
+
+
+
+  <div class="col-sm-3">
+<div class="left col-md-15">
     {% if circuitslist is not empty %}
+<br>
         <p>Here are all your circuits:</p>
         <ul style='list-style-type:none'>
         {# Loop through list and creeate the list of circuit items. #}
@@ -32,15 +38,35 @@
     {% else %}
         <p>Sorry, you don't have any circuits yet!</p>
     {% endif %}
+</div>
+</div>
 
 <div> 
 {{ block('style') }}
 </div>
 
+
 {% endblock %} {# main #}
 
 	{% block footer %}
    	<footer> 
+
+
+<section class="container-fluid row">
+
+<div class="left col-md-8">
+    <div class="container mt-0">
+        <header class="container-fluid bd">
+           
+
+        </header>
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/-d0ZFJ2gpOo" frameborder="0" allowfullscreen></iframe>
+        <div class="vidText">
+     
+        </div>
+    </div>
+
+</section>
     		 <img src="/templates/panda.jpg" width="750"> 
     	</footer>
 	    {% endblock %} 
