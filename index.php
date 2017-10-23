@@ -148,6 +148,28 @@ $app->get ( '/signup',
 	}
 )->bind ( 'signup' );
 
+// contact
+$app->get ( '/contact', 
+	function () use ($app) 
+	{
+
+		return $app ['twig']->render ( 'contact.html.twig' );
+	}
+)->bind ( 'contact' );
+
+// news: les promotions
+$app->get ( '/news', 
+	function () use ($app) 
+	{
+		$programmationslist = get_all_programmations ();
+		// print_r($programmationslist);
+
+		return $app ['twig']->render ( 'news.html.twig', [ 
+				'programmationslist' => $programmationslist 
+			] );
+	}
+)->bind ( 'news' );
+
 $app->run ();
 
 
