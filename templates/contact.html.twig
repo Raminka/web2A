@@ -1,0 +1,121 @@
+{# templates/contact.html.twig #}
+
+{% extends "baselayout.html.twig" %}
+
+{% block title %}{{ parent() }} - contact{% endblock %}
+
+{% block style %}
+ <style>
+	body {
+	background: none;
+	
+   }
+  </style>
+
+{% endblock %}
+
+{# formulaire d'ajout d'un nouveau collaborateur #}
+{% block add_form %}
+
+    <!-- add_form -->
+			<form action="/tasks" method="POST">
+				<div class="input-group">
+<br>
+<p> Pour quelle raison souhaitez-vous nous contacter?
+</p>
+ <select name="raison"  class="form-control"  >
+                                    <option value="Recherche d'informations complémentaires sur un circuit">Recherche d'informations complémentaires sur un circuit</option>
+                    <option value="Suggestions à propos de notre agence">Suggestions à propos de notre agence</option>
+                
+                </select> 
+ <br> <br/>
+
+<p> Votre mail
+</p>					<input type="text" name="name"  class="form-control" placeholder=""> 
+ <br> <br/>
+<p>Message
+</p>	
+					
+					<textarea class="form-control" rows="6" name="message" placeholder="Tapez votre message ici..."></textarea> 
+ <br> <br/>
+					<span class="input-group-btn">
+					
+					</span>
+				</div>
+			</form>
+    <!-- /add_form -->
+{% endblock %} {# add_form #}
+
+
+{% block envoyer %}
+   
+			
+				<input type="submit" class="btn btn-danger btn-block"
+					value="Envoyer!">
+			
+    
+{% endblock %} {# envoyer #}
+
+{# au lieu de surcharger uniquement le bloc content de todoslayout, on surcharge un peu plus haut, le bloc main
+      pour embarquer deux rows dans la partie centrale
+  #}
+
+
+{% block main %}
+
+
+   
+    
+<h1>Contact</h1>
+
+<div class="container-fluid  bg-grey">
+  
+<div class="row=2 ">
+
+    <div class="col-sm-6">
+ 
+      <div class="thumbnail">
+        		{{ block('add_form') }}
+ <br> 
+ <br> 
+			<div class="col-md-3">
+		<div class="center-block">
+		    {{ block('envoyer') }}
+		</div> <!-- /.center-block -->
+	</div> <!-- /.col-md-3 -->
+      </div>
+    </div>
+
+
+
+<br>
+<br>
+<br>
+    <div class="col-sm-4 ">
+
+      <div class="thumbnail" >
+<br>
+                <p><strong> Votre agence de voyage  </strong><br>
+<br>
+                150 rue Charles Fourier<br>
+                91000 Evry<br>
+                France
+                <br><br>
+                E-mail: <a href="mailto:votreagence@voyage.com">votreagence@voyage.com</a><br>
+                mobile number:  +33 (0)638000160 <br>
+<br>
+                KvK nummer: 34330199<br>
+                </p>
+		
+                <img src="https://www.youngcapital.nl/public_images/be/Image/hoofddorp.jpg" class="img-responsive no-margin-left" alt="StudentJob Hoofdkantoor in Hoofddorp" width="100"> 
+              </div>
+              
+              
+      </div>
+    </div>
+
+<div> 
+{{ block('style') }}
+</div>
+
+{% endblock %} {# main #}

@@ -1,0 +1,64 @@
+{# templates/news.html.twig #}
+
+{% extends "baselayout.html.twig" %}
+
+{% block title %}{{ parent() }} - news{% endblock %}
+
+{% block style %}
+ <style>
+	body {
+	background: none;
+	
+   }
+  </style>
+
+{% endblock %}
+
+{% block main %}
+
+    <h1>Actualités et promotions</h1>
+    {% if programmationslist is not empty %}
+
+<div class="container-fluid text-center bg-grey">
+  <div class="row ">
+
+<div class="col-sm-5">
+      <div class="thumbnail">
+        <img src="templates/italie.jpg" width="700" alt="Italie"  height="300">	
+        <p><strong>Italie</strong></p>
+        <p>Du 29 Octobre au 18 Novembre, le voyage en Italie est à moitié prix, N'attendez plus pour réserver une place ! <br>
+<li><a href="/circuit/4"><span class="sidebar-text">Je découvre</span> </a></li> </p>
+      </div>
+    </div>
+   
+
+
+    <div class="col-sm-7">
+      <div class="thumbnail">
+         <p><strong>S'inscrire</strong></p> <br>
+	 <p>Inscrivez-vous et recevez un code promo valable sur tous les circuits!  <br>
+<li><a href="/news#"><span class="sidebar-text">Je m'inscris</span> </a></li> </p></p>
+      </div>
+     <div class="thumbnail">    
+	<p><strong>Parrainage</strong></p> <br>
+	<img src="templates/parrainer.jpg" width="400" alt="Parrainer"  height="300"> <br>	
+        <p>Parrainez vos amis et recevez un code promo utilisable sur tous les circuits! <br>
+<li><a href="/news#"><span class="sidebar-text">Je parraine</span> </a></li> </p></p>
+      </div>
+
+   
+    </div>
+
+
+
+       
+    {% else %}
+        <p>Sorry, you don't have any programmations yet!</p>
+    {% endif %}    
+
+<div> 
+{{ block('style') }}
+</div>
+
+{% endblock %} {# main #}
+{% block footer %} {% endblock %}
