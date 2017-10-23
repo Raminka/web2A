@@ -4,6 +4,15 @@
 
 {% block title %}{{ parent() }} - Circuits list{% endblock %}
 
+{% block style %}
+ <style>
+	body {
+	background: none;
+	
+   }
+  </style>
+
+{% endblock %}
 
 {% block main %}
     <h1>List of circuits</h1>
@@ -14,6 +23,8 @@
         {% for circuit in circuitslist %}
             <li>
           		<a href="{{ path('circuitshow', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
+<p>
+</p>
             </li>
         {% endfor %}
         </ul>
@@ -21,5 +32,16 @@
         <p>Sorry, you don't have any circuits yet!</p>
     {% endif %}
 
+<div> 
+{{ block('style') }}
+</div>
+
 {% endblock %} {# main #}
+
+	{% block footer %}
+   	<footer> 
+    		 <img src="/templates/panda.jpg" width="750"> 
+    	</footer>
+	    {% endblock %} 
+
 

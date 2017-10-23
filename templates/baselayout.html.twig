@@ -13,6 +13,11 @@
 	background-color:beige;
 	font-family: sans-serif;
 	padding-left: 100px;
+        background-image: url("/templates/tourisme.jpg");
+        background-repeat:no-repeat;
+	background-position:50% -19%;
+	background-size: cover;
+
 }
 
 
@@ -25,20 +30,30 @@ ul {
 
 li {
 	font-size: 1.25em;
-	padding: 20px 0;
+	padding: 0px 0;
 	border-top: 1px solid #eee;
 }
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+      background: linear-gradient( DarkGray, black  );
+      border-radius: 0px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
+                0 3px 5px rgba(0, 0, 0, .2),
+                0 5px 10px rgba(0, 0, 0, .2),
+                0 15px 15px rgba(0, 0, 0, .15);
+      width: 99em ;
+      left: -13em;
+
+
     }
     
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-	padding-left:0px;
+  {#    background-color: #f2f2f2; #}
+   {#   padding: 25px; #}
+{#	padding-left:0px;#}
     }
   </style>
 
@@ -73,15 +88,15 @@ li {
 		{% block main %}
 		<div class="row">
 			<div class="col-md-12">
-				<p><i>MAIN</i></p>
+				<p><i>MAIN</i></p> 
 			</div>
 		</div>
 		{% endblock %}
     	{% block footer %}
-    	<footer>
-    		 <img src="/templates/panda.jpg" width="1150"> 
+   	<footer> 
+ {#    		 <img src="/templates/panda.jpg" width="1150"> #}
     	</footer>
-	    {% endblock %}
+	    {% endblock %} 
 
 	</div>	<!-- /.container -->
 

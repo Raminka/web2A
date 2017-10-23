@@ -139,7 +139,14 @@ $app->get ( '/circuitBO/{id}',
 	}
 )->bind ( 'circuitshowBO' );
 
+// new account: sign up
+$app->get ( '/signup', 
+	function () use ($app) 
+	{
 
+		return $app ['twig']->render ( 'signup.html.twig' );
+	}
+)->bind ( 'signup' );
 
 $app->run ();
 

@@ -1,0 +1,78 @@
+{# templates/circuitshowBO.html.twig #}
+{#
+  {{ dump(circuit) }}
+#}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/stylesbackoffice.css">
+  <title>Details for circuit {{ id }}</title>
+</head>
+
+<body>
+<li><a href="/circuitBO"><span class="sidebar-text">Back to circuitBO</span></a></li>
+
+
+
+  <h1>{{ circuit.description }}</h1>
+
+	<h2>Détails</h2>
+
+			<p>Description: {{ circuit.description }}</p>
+
+			<p>Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} j.
+         de voyage à travers le {{ circuit.paysDepart }}, pour terminer à
+         {{ circuit.villeArrivee }}.</p>
+
+  {% if circuit.programmations is not empty %}
+  <h2>Programmations de ce circuit</h2>
+  {# <pre>{{ dump(circuit) }}</pre> #}
+     	<table>
+     	 		<thead>
+     					<tr>
+     				    	<th>Date de départ</th>
+     						  <th>Nombre de personnes</th>
+     						  <th>Prix</th>
+     					</tr>
+     				</thead>
+     		{%  for programmation in circuit.programmations %}
+     			<tr>
+     			   <td>{{ programmation.dateDepart|date('d-m-Y')  }}</td>
+     			   <td>{{ programmation.nombrePersonnes }}</td>
+     			   <td>{{ programmation.prix }} euros</td>
+     			</tr>
+     		{% endfor %}
+     		</table>
+    {% else %}
+    <p>Désolé : pas encore de programmations pour ce circuit.</p>
+    {% endif %}
+<p>
+
+</p>
+{# formulaire d'ajout d'informations sur les programmes  #}
+{% block add_form %}
+    <!-- add_form -->
+			<form action="/tasks" method="POST">
+				<div class="input-group">
+					<input type="text" name="name" class="form-control" placeholder="More details?">
+					<span class="input-group-btn">
+						<input type="submit" value="Add information" class="btn">
+					</span>
+				</div>
+			</form>
+    <!-- /add_form -->
+{% endblock %} {# add_form #}
+
+{# formulaire de suppression d'informations sur les programmes #}
+{% block clearcomplete_form %}
+    <!-- clearcomplete_form -->
+			<form action="/tasks/clear-complete" method="POST">
+				<input type="submit" class="btn btn-danger btn-block"
+					value="Clear Completed">
+			</form>
+    <!-- /clearcomplete_form -->
+{% endblock %} {# clearcomplete_form #}
+
+
+</body>
+</html>

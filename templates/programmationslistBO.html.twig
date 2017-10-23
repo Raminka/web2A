@@ -1,25 +1,33 @@
-{# templates/circuitslistBO.html.twig #}
+{# templates/programmationslistBO.html.twig #}
 
 {% extends "admin_home.html.twig" %}
 
-{% block title %}{{ parent() }} - Circuits list{% endblock %}
+{% block title %}{{ parent() }} - programmations list{% endblock %}
 
+{% block style %}
+ <style>
+	body {
+	background: none;
+	
+   }
+  </style>
+{% endblock %}
 
-{# formulaire d'ajout d'un nouveau circuit #}
+{# formulaire d'ajout d'un nouveau programme #}
 {% block add_form %}
     <!-- add_form -->
 			<form action="/tasks" method="POST">
 				<div class="input-group">
-					<input type="text" name="name" class="form-control" placeholder="What's the new circuit?">
+					<input type="text" name="name" class="form-control" placeholder="What's the new programmation?">
 					<span class="input-group-btn">
-						<input type="submit" value="Add Circuit" class="btn">
+						<input type="submit" value="Add Programmation" class="btn">
 					</span>
 				</div>
 			</form>
     <!-- /add_form -->
 {% endblock %} {# add_form #}
 
-{# formulaire de suppression de circuits terminés #}
+{# formulaire de suppression de programmes terminés #}
 {% block clearcomplete_form %}
     <!-- clearcomplete_form -->
 			<form action="/tasks/clear-complete" method="POST">
@@ -35,22 +43,22 @@
 
 
 {% block main %}
-   
-    <h1>List of circuits</h1>
-    {% if circuitslist is not empty %}
-        <p>Here are all your circuits:</p>
-        <ul style='list-style-type:none'>
-        {# Loop through list and creeate the list of circuit items. #}
-        {% for circuit in circuitslist %}
-            <li>
-          		<a href="{{ path('circuitshowBO', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
+
+
+    <h1>List of programmations</h1>
+    {% if programmationslist is not empty %}
+        <p>Here are all your programmations:</p>
+        <ul>
+        {# Loop through list and creeate the list of programmation items. #}
+        {% for programmation in programmationslist %}
+            <li style='list-style-type:none'>
+          		{{ programmation.id }} {{ programmation.circuit.description }} le {{ programmation.dateDepart|date('d-m-Y')  }}
             </li>
         {% endfor %}
         </ul>
     {% else %}
-        <p>Sorry, you don't have any circuits yet!</p>
-    {% endif %}
-
+        <p>Sorry, you don't have any programmations yet!</p>
+    {% endif %}    
 
 <div class="row">
   <div class="col-md-12">
@@ -68,7 +76,8 @@
 	</div> <!-- /.col-md-3 -->
 </div> <!-- /.row -->
 
-
+<div> 
+{{ block('style') }}
+</div>
 
 {% endblock %} {# main #}
-
