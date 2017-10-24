@@ -4,15 +4,6 @@
 
 {% block title %}{{ parent() }} - programmations list{% endblock %}
 
-{% block style %}
- <style>
-	body {
-	background: none
-	
-   }
-  </style>
-
-{% endblock %}
 
 {% block main %}
 
@@ -64,9 +55,6 @@
         <p>Sorry, you don't have any programmations yet!</p>
     {% endif %}    
 
-<div> 
-{{ block('style') }}
-</div>
 
 {% endblock %} {# main #}
 {% block footer %} {% endblock %}

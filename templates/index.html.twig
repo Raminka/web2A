@@ -2,11 +2,83 @@
 
 {% extends "baselayout.html.twig" %}
 
+{% block style %}
+ <style>
+	
+body{
+ 	background-image: url("/templates/tourisme.jpg");
+        background-repeat:no-repeat;
+	background-position:50% -10%;
+	background-size: cover;
+position: fixed;
+	}
+{font-size: 16px;}
+  .margin {margin-bottom: 80px;
+
+}
+
+    .bg-2 { 
+      background-color: black;
+	opacity: 0.74;
+	color: #ffffff; 
+      
+
+position: absolute; width: cover;
+ left: 0px; right: 0px;  }
+
+  .container-fluid {
+      padding-top: 0px;
+      padding-bottom: 0px;
+
+
+  }
+
+	
+
+  </style>
+
+{% endblock %}
 
 {% block main %}
-    <h1>Bienvenue sur notre site</h1>
+   <div> 
+{{ block('style') }}
+</div>
+
+ <h1>AgenceVoyage</h1>
+
+<br><br><br><br><br><br>
+<br><br><br><br>
+
+<div class="container-fluid bg-2 text-center">
+  <h2 class="margin">  <strong>Voyagez en toute tranquilité et découvrez le monde! </strong></h2>
+ 	<p></p>
+</div> </div> 
+<br><br><br>
+
+
+ <div class="col-sm-11">
+
+        <h3 class="margin" ></h3>
+        
+
+<p><strong>AgenceVoyage</strong> est la plus grande agence touristique d'Europe ! Depuis 2015, Votre Agence agrandit&nbsp;continuellement son réseau européen et propose désormais chaque jour  de plus en plus de&nbsp;<a href="/programmation" target="_self"> destinations</a>. Notre objectif est de rendre le monde accessible à tous ! Vous pouvez découvrir l'intégralité de notre réseau de bus longue distance avec notre&nbsp;<a href="/circuit">liste de circuit</a>. Réservez dès maintenant votre voyage pour&nbsp;<a href="/circuit/3" target="_self">l'Ile de France</a>,&nbsp;<a href="/circuit/4" target="_self">l'Italie</a>,&nbsp;<a href="/circuit/1" target="_self">l'Andalousie</a> et bien d’autres !
+<br> <br>
+
+Rendez-vous en agence. Vous pouvez aussi utiliser le catalogue papier et son formulaire à renvoyer par courrier pour réserver un voyage. </p> 
+
 
 
 </div>
+</div>
+
+    </div>
+
+
+ </div>
+        </div>
+
+
 
 {% endblock %} {# main #}
+
+

@@ -4,15 +4,6 @@
 
 {% block title %}{{ parent() }} - contact{% endblock %}
 
-{% block style %}
- <style>
-	body {
-	background: none;
-	
-   }
-  </style>
-
-{% endblock %}
 
 {# formulaire d'ajout d'un nouveau collaborateur #}
 {% block add_form %}
@@ -95,16 +86,16 @@
 
       <div class="thumbnail" >
 <br>
-                <p><strong> Votre agence de voyage  </strong><br>
+                <p><strong> AgenceVoyage  </strong><br>
 <br>
                 150 rue Charles Fourier<br>
                 91000 Evry<br>
                 France
                 <br><br>
-                E-mail: <a href="mailto:votreagence@voyage.com">votreagence@voyage.com</a><br>
+                E-mail: <a href="mailto:agence@voyage.com"agence@voyage.com</a><br>
                 mobile number:  +33 (0)638000160 <br>
-<br>
-                KvK nummer: 34330199<br>
+
+                
                 </p>
 		
                 <img src="https://www.youngcapital.nl/public_images/be/Image/hoofddorp.jpg" class="img-responsive no-margin-left" alt="StudentJob Hoofdkantoor in Hoofddorp" width="100"> 
@@ -114,8 +105,6 @@
       </div>
     </div>
 
-<div> 
-{{ block('style') }}
-</div>
+
 
 {% endblock %} {# main #}

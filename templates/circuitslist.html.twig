@@ -4,15 +4,6 @@
 
 {% block title %}{{ parent() }} - Circuits list{% endblock %}
 
-{% block style %}
- <style>
-	body {
-	background: none;
-	
-   }
-  </style>
-
-{% endblock %}
 
 {% block main %}
     <h1>List of circuits</h1>
@@ -41,9 +32,6 @@
 </div>
 </div>
 
-<div> 
-{{ block('style') }}
-</div>
 
 
 {% endblock %} {# main #}
@@ -67,6 +55,7 @@
     </div>
 
 </section>
+<br>
     		 <img src="/templates/panda.jpg" width="750"> 
     	</footer>
 	    {% endblock %} 
